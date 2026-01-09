@@ -23,3 +23,7 @@ func printBook(book Book) {
 	// fmt.Println(book.Title, "by", book.Author, "-", book.Copies, "copies")
 	fmt.Printf("%v by %v - %v copies\n", book.Title, book.Author, book.Copies)
 }
+
+func BookToString(book Book) string {
+	return fmt.Sprintf("%v by %v - %v copies", book.Title, book.Author, book.Copies)
+}
