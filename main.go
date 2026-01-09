@@ -15,8 +15,7 @@ func main() {
 		Copies: 2,
 	}
 
-	fmt.Println("Books in stock:")
-	printBook(book)
+	fmt.Println(BookToString(book))
 }
 
 func printBook(book Book) {
