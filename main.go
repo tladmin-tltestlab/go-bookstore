@@ -1,6 +1,8 @@
 package main
 
 import "fmt"
+import "net/http"
+import "os"
 
 type Book struct {
 	Title  string
@@ -9,18 +11,11 @@ type Book struct {
 }
 
 func main() {
-	book := Book{
-		Title:  "Sea Room",
-		Author: "Adam Nicolson",
-		Copies: 2,
+	router := NewRouter()
+	err := http.ListenAndServe("0.0.0.0:8081", router)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err.Error())
 	}
-
-	fmt.Println(BookToString(book))
-}
-
-func printBook(book Book) {
-	// fmt.Println(book.Title, "by", book.Author, "-", book.Copies, "copies")
-	fmt.Printf("%v by %v - %v copies\n", book.Title, book.Author, book.Copies)
 }
 
 func BookToString(book Book) string {
