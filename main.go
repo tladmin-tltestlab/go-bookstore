@@ -1,29 +1,16 @@
 package main
 
-import "fmt"
-
-type Book struct {
-	Title  string
-	Author string
-	Copies int
-}
+import (
+	"books"
+	"fmt"
+)
 
 func main() {
-	book := Book{
+	book := books.Book{
 		Title:  "Sea Room",
 		Author: "Adam Nicolson",
 		Copies: 2,
 	}
 
-	fmt.Println(BookToString(book))
-}
-
-func printBook(book Book) {
-	// fmt.Println(book.Title, "by", book.Author, "-", book.Copies, "copies")
-	fmt.Printf("%v by %v - %v copies\n", book.Title, book.Author, book.Copies)
-}
-
-func BookToString(book Book) string {
-	// return fmt.Sprintf("%v by %v - %v copies", book.Title, book.Author, book.Copies)
-	return fmt.Sprintf("%v by %v (copies: %v)", book.Title, book.Author, book.Copies)
+	fmt.Println(books.BookToString(book))
 }
