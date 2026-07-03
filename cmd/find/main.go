@@ -7,6 +7,10 @@ import (
 )
 
 func main() {
+	if len(os.Args) != 2 {
+		fmt.Println("Usage: find <BOOK ID>")
+		return
+	}
 	ID := os.Args[1]
 	book, ok := books.GetBook(ID)
 	if !ok {
